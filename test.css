@@ -33,18 +33,11 @@ h2{
 }
 
 .main_contents{
-  width: 80%;
-  float: left;
-  margin: 0;
+  width: 70%;
+  height:600px;
+  margin: 0 auto;
   padding: 0;
   text-align: center;
-}
-
-.side_bar{
-  width: 20%;
-  float: right;
-  margin: 0;
-  padding: 0;
 }
 
 
