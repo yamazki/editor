@@ -1,8 +1,7 @@
 'use strict';
 
 const electron = require("electron");
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const {app, Menu, BrowserWindow} = require('electron');
 let mainWindow;
 
 app.on('window-all-closed', function() {
@@ -22,4 +21,31 @@ app.on('ready', function() {
     mainWindow = null;
   });
   mainWindow.webContents.openDevTools();
+  
 });
+
+var menu = Menu.buildFromTemplate([
+  {
+    label: 'Sample',
+    submenu: [
+      {label: 'About'},
+      {label: 'Quit'}
+    ]
+  },
+  {
+    label: 'File',
+    submenu: [
+      {label: 'New File'},
+      {label: 'Paste'}
+    ]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      {label: 'Copy', accelerator: 'Command+C', selector: 'copy'},
+      {label: 'Paste', accelerator: 'Command+V', selector: 'paste'}
+    ]
+  }
+]);
+Menu.setApplicationMenu(menu);
+
