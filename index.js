@@ -1,27 +1,9 @@
 'use strict';
 
-var WebSocketServer = require('ws').Server;
+const ws = require('./test.js');
 const electron = require("electron");
 const {app, Menu, BrowserWindow} = require('electron');
 let mainWindow;
-
-class websocketserver {
-  constructor(port) {
-    this.server = {port:8888}
-    this.server.port = port;
-    this.wss = new WebSocketServer(this.server);
-    this.wss.on('open', function open() {
-        this.wss.send('something');
-    });
-  }
-}
-
-
-app.on('window-all-closed', function() {
-  if (process.platform != 'darwin') {
-    app.quit();
-  }
-});
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow(
@@ -57,8 +39,13 @@ const menu = Menu.buildFromTemplate([
     label: 'Edit',
     submenu: [
       {label: 'Copy', accelerator: 'Command+C', selector: 'copy'},
-      {label: 'Paste', accelerator: 'Command+V', selector: 'paste'},
-      {label: 'Paste', click:function(){ var server = new websocketserver(8888);}}
+      {label: 'Paste', accelerator: 'Command+V', selector: 'paste'}
+      ]
+  },
+  {
+    label: 'ネットワーク',
+    submenu: [
+      {label: 'ウェブソケットサーバ', click:function(){var server =new ws.websocketserver(8888);}} 
     ]
   }
 ]);

@@ -21,3 +21,4 @@ class websocketclient {
   }
 }
 
+exports.websocketserver = websocketserver;
