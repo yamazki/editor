@@ -2,7 +2,7 @@
 
 var WebSocketServer = require('ws').Server;
 
-class websocketstart {
+class websocketserver {
   constructor(port) {
     this.server = {port:8888}
     this.server.port = port;
@@ -20,3 +20,4 @@ class websocketclient {
     this.ws = new WebSocket('ws://' + host + ':' + port);
   }
 }
+
