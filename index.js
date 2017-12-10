@@ -1,7 +1,6 @@
 'use strict';
 
 const test = require('./test.js');
-const electron = require("electron");
 const {app, Menu, BrowserWindow} = require('electron');
 let mainWindow;
 
@@ -9,8 +8,10 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow(
   {width:  800,
    height: 600,
-   
-   });
+   webPreferences:{
+     webSecurity:false
+     }
+  });
   mainWindow.loadURL('file://' + __dirname + '/index.html');
   mainWindow.on('closed', function() {
     mainWindow = null;
@@ -45,8 +46,7 @@ const menu = Menu.buildFromTemplate([
   {
     label: 'ネットワーク',
     submenu: [
-      {label: 'ウェブソケットサーバ', click:function(){var server =new test.inputwindow();}} 
-    ]
+      {label: 'ウェブソケットサーバ', click:function(){var server =new test.newwindow('https//github.com');}} ]
   }
 ]);
 Menu.setApplicationMenu(menu);

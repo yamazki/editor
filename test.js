@@ -2,6 +2,7 @@
 
 const WebSocketServer = require('ws').Server;
 const {app, Menu, BrowserWindow} = require('electron');
+const Path = require('path');
 
 class websocketserver {
   constructor(port) {
@@ -25,19 +26,20 @@ class websocketclient {
   }
 }
 
-class inputwindow {
-  constructor() {
-    const w = new BrowserWindow( {
+class newwindow {
+  constructor(filename) {
+    const newwindow = new BrowserWindow( {
     width: 400,
     height: 400,
     minWidth: 400,
     minHeight: 400,
-    resizable: true
-    } );
-     // const filePath = Path.join( __dirname, 'index.html' );
-     // w.loadURL( 'file://' + filePath );
+    resizable: true,
+      } );
+    newwindow.loadURL('https://github.com');
+    newwindow.loadURL('');
+    newwindow.webContents.openDevTools();
   }
 }
 
 exports.websocketserver = websocketserver;
-exports.inputwindow = inputwindow;
+exports.newwindow = newwindow;
