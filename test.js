@@ -26,20 +26,33 @@ class websocketclient {
   }
 }
 
-class newwindow {
+class webwindow {
   constructor(filename) {
-    const newwindow = new BrowserWindow( {
+    const webwindow = new BrowserWindow( {
+    width:    1000,
+    height:   700,
+    minWidth: 400,
+    minHeight:400,
+    resizable:true,
+      } );
+    webwindow.loadURL(filename);
+  }
+}
+
+class localwindow {
+  constructor(filename) {
+    const localwindow = new BrowserWindow( {
     width: 400,
     height: 400,
     minWidth: 400,
     minHeight: 400,
     resizable: true,
+    webPreferences: {webSecurity: false}
       } );
-    newwindow.loadURL('https://github.com');
-    newwindow.loadURL('');
-    newwindow.webContents.openDevTools();
+    localwindow.loadURL('file://' + __dirname + '/' + filename);
   }
 }
 
 exports.websocketserver = websocketserver;
-exports.newwindow = newwindow;
+exports.localwindow = localwindow;
+exports.webwindow = webwindow;

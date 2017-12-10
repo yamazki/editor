@@ -13,11 +13,11 @@ app.on('ready', function() {
      }
   });
   mainWindow.loadURL('file://' + __dirname + '/index.html');
+  console.log('file://' + __dirname + '/index.html');
   mainWindow.on('closed', function() {
     mainWindow = null;
   });
-  mainWindow.webContents.openDevTools();
-  
+  //mainWindow.webContents.openDevTools();
 });
 
 const menu = Menu.buildFromTemplate([
@@ -46,7 +46,9 @@ const menu = Menu.buildFromTemplate([
   {
     label: 'ネットワーク',
     submenu: [
-      {label: 'ウェブソケットサーバ', click:function(){var server =new test.newwindow('https//github.com');}} ]
+      {label: 'ウェブソケットサーバ', click:function(){var server =new test.localwindow('websocektserver.html');}},
+      {label: 'ブラウザ', click:function(){var browser  =new test.webwindow('http://google.co.jp');}}
+       ]
   }
 ]);
 Menu.setApplicationMenu(menu);
