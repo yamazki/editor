@@ -1,6 +1,6 @@
 'use strict';
 
-const ws = require('./test.js');
+const test = require('./test.js');
 const electron = require("electron");
 const {app, Menu, BrowserWindow} = require('electron');
 let mainWindow;
@@ -45,7 +45,7 @@ const menu = Menu.buildFromTemplate([
   {
     label: 'ネットワーク',
     submenu: [
-      {label: 'ウェブソケットサーバ', click:function(){var server =new ws.websocketserver(8888);}} 
+      {label: 'ウェブソケットサーバ', click:function(){var server =new test.inputwindow();}} 
     ]
   }
 ]);
