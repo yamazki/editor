@@ -1,0 +1,1 @@
+electron-packager . sample --platform=darwin,win32 --arch=x64 --electron-version=1.7.9
