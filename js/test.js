@@ -51,6 +51,9 @@ class miniwindow {
     webPreferences: {webSecurity: false}
       } );
     miniwindow.loadURL('file://' + __dirname + filename);
+    const menu = Menu.buildFromTemplate([])
+    miniwindow.setMenu(menu);
+    miniwindow.webContents.openDevTools();
   }
 }
 

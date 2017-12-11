@@ -18,9 +18,8 @@ app.on('ready', function() {
   });
   //console.log('file://' + __dirname + 'html/index.html')
   //mainWindow.webContents.openDevTools();
-});
 
-const menu = Menu.buildFromTemplate([
+  const menu = Menu.buildFromTemplate([
   {
     label: 'Sample',
     submenu: [
@@ -49,7 +48,7 @@ const menu = Menu.buildFromTemplate([
       {label: 'ウェブソケットサーバ', click:function(){var server =new test.miniwindow('/../html/websocektserver.html');}},
       {label: 'ブラウザ', click:function(){var browser  =new test.browserwindow('http://google.co.jp');}}
        ]
-  }
-]);
-Menu.setApplicationMenu(menu);
-
+   }
+  ]);
+  mainWindow.setMenu(menu);
+});

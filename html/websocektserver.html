@@ -7,12 +7,13 @@
 </head>
 <body>
   <div class="header">
-  <p><h2>ウェブソケットサーバ</h2></p>
   </div>
-  <input type="text" id="msg"/>
-  <input type="button" value="サーバー起動" onclick="server =new websocketserver(document.getElementById('msg').value);"/>
+  ポート番号: 
+  <input type="text" id="msg"/> </br> </br>
+  <input type="button" value="サーバー起動" onclick="server = new websocketserver(document.getElementById('msg').value);"/>
+  <input type="button" value="サーバー停止" onclick="location.reload();"/>
   <script>
-  var server; 
+  let server; 
   </script>
 </body> 
 </html>
