@@ -13,7 +13,6 @@ app.on('ready', function() {
      }
   });
   mainWindow.loadURL('file://' + __dirname + '/index.html');
-  console.log('file://' + __dirname + '/index.html');
   mainWindow.on('closed', function() {
     mainWindow = null;
   });
@@ -46,8 +45,8 @@ const menu = Menu.buildFromTemplate([
   {
     label: 'ネットワーク',
     submenu: [
-      {label: 'ウェブソケットサーバ', click:function(){var server =new test.localwindow('websocektserver.html');}},
-      {label: 'ブラウザ', click:function(){var browser  =new test.webwindow('http://google.co.jp');}}
+      {label: 'ウェブソケットサーバ', click:function(){var server =new test.miniwindow('/websocektserver.html');}},
+      {label: 'ブラウザ', click:function(){var browser  =new test.browserwindow('http://google.co.jp');}}
        ]
   }
 ]);

@@ -26,22 +26,23 @@ class websocketclient {
   }
 }
 
-class webwindow {
+class browserwindow {
   constructor(filename) {
-    const webwindow = new BrowserWindow( {
+    const browserwindow = new BrowserWindow( {
     width:    1000,
     height:   700,
     minWidth: 400,
     minHeight:400,
     resizable:true,
-      } );
-    webwindow.loadURL(filename);
+    webPreferences: {webSecurity: false}
+      });
+    browserwindow.loadURL(filename);
   }
 }
 
-class localwindow {
+class miniwindow {
   constructor(filename) {
-    const localwindow = new BrowserWindow( {
+    const miniwindow = new BrowserWindow( {
     width: 400,
     height: 400,
     minWidth: 400,
@@ -49,10 +50,10 @@ class localwindow {
     resizable: true,
     webPreferences: {webSecurity: false}
       } );
-    localwindow.loadURL('file://' + __dirname + '/' + filename);
+    miniwindow.loadURL('file://' + __dirname + filename);
   }
 }
 
 exports.websocketserver = websocketserver;
-exports.localwindow = localwindow;
-exports.webwindow = webwindow;
+exports.miniwindow = miniwindow;
+exports.browserwindow = browserwindow;
