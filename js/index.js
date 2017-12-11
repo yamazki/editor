@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('./test.js');
+const test = require('../js/test.js');
 const {app, Menu, BrowserWindow} = require('electron');
 let mainWindow;
 
@@ -12,10 +12,11 @@ app.on('ready', function() {
      webSecurity:false
      }
   });
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/../html/index.html');
   mainWindow.on('closed', function() {
     mainWindow = null;
   });
+  //console.log('file://' + __dirname + 'html/index.html')
   //mainWindow.webContents.openDevTools();
 });
 
@@ -45,7 +46,7 @@ const menu = Menu.buildFromTemplate([
   {
     label: 'ネットワーク',
     submenu: [
-      {label: 'ウェブソケットサーバ', click:function(){var server =new test.miniwindow('/websocektserver.html');}},
+      {label: 'ウェブソケットサーバ', click:function(){var server =new test.miniwindow('/../html/websocektserver.html');}},
       {label: 'ブラウザ', click:function(){var browser  =new test.browserwindow('http://google.co.jp');}}
        ]
   }

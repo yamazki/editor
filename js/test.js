@@ -10,10 +10,10 @@ class websocketserver {
     this.server.port = port;
     this.wss = new WebSocketServer(this.server);
     this.wss.on('connection', function(ws) {
-          ws.on('message', function(message) {
-          console.log('received: %s', message);
-          });
-          ws.send('something');
+       ws.on('message', function(message) {
+       console.log('received: %s', message);
+       });
+       ws.send('something');     
     });
   }
 }
