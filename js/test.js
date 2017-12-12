@@ -3,18 +3,18 @@
 const WebSocketServer = require('ws').Server;
 const {app, Menu, BrowserWindow} = require('electron');
 const Path = require('path');
+const socketio = require('socket.io');
 
 class websocketserver {
   constructor(port) {
-    this.server = {port:8888}
-    this.server.port = port;
-    this.wss = new WebSocketServer(this.server);
-    this.wss.on('connection', function(ws) {
-       ws.on('message', function(message) {
-       console.log('received: %s', message);
-       });
-       ws.send('something');     
+    try {
+    let io = require('socket.io').listen(port);
+    io.sockets.on('connection', function (socket) {
     });
+    alert('起動に成功しました');
+    } catch(e){
+      alert('起動に失敗しました');
+    }
   }
 }
 
