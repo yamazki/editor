@@ -10,15 +10,17 @@
   </div>
   <div class="main">
     ポート番号: 
-    <input type="text" id="msg"/> </br> </br>
+    <input type="text" id="port"/> </br> </br>
     <input type="button" value="サーバー起動" onclick="
-        if(isNaN(document.getElementById('msg').value) == false &&
-        document.getElementById('msg').value > 0                &&
-        document.getElementById('msg').value < 65535){
-        server = new websocketserver(document.getElementById('msg').value);
-     }else{
-       alert('入力値が不正です。0から65535までの数を入力して下さい。');
-     }"/>
+        //ポート番号チェック
+        if(isNaN(document.getElementById('port').value) == false && 
+        document.getElementById('port').value > 0                && 
+        document.getElementById('port').value < 65535) {
+          server = new websocketserver(document.getElementById('port').value);
+        } else {
+          alert('入力値が不正です。0から65535までの数を入力して下さい。');
+        }
+     "/>
     <input type="button" value="サーバー停止" onclick="location.reload();"/>
   </div>  
   <script>

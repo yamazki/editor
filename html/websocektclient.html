@@ -1,0 +1,39 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+  <title>websocketserver</title>
+  <link rel="stylesheet" type="text/css" href="../css/websocketserver.css">
+  <script src="../js/test.js"> </script>
+</head>
+<body>
+  <div class="header">
+  </div>
+  <div class="main">
+    ホスト名: 
+    <input type="text" id="host"/> </br>
+    ポート番号: 
+    <input type="text" id="port"/> </br> </br>
+    <input type="button" value="`サーバに接続" onclick="
+      //ホスト名チェック
+      if(isNaN(document.getElementById('host').value) == ''){
+        alert('ホスト名が空白です');
+      }
+      //ポート番号チェック
+      else if(isNaN(document.getElementById('port').value) == false && 
+      document.getElementById('port').value > 0                     && 
+      document.getElementById('port').value < 65535) {
+        let server = new websocketclient(document.getElementById('host').value,document.getElementById('port').value);
+      } else {
+        alert('ポート番号の入力値が不正です。0から65535までの数を入力して下さい。');
+      }
+    "/>
+    <input type="button" value="切断" onclick="location.reload();"/>
+  </div>
+  <script>
+  var person = prompt("Please enter your name", "Harry Potter");  
+  </script>
+  </body> 
+</html>
+
+
+

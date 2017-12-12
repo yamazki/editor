@@ -17,7 +17,7 @@ app.on('ready', function() {
     mainWindow = null;
   });
   //console.log('file://' + __dirname + 'html/index.html')
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   const menu = Menu.buildFromTemplate([
   {
@@ -46,6 +46,7 @@ app.on('ready', function() {
     label: 'ネットワーク',
     submenu: [
       {label: 'ウェブソケットサーバ', click:function(){var server =new test.miniwindow('/../html/websocektserver.html');}},
+      {label: 'ウェブソケットクライアント', click:function(){var server =new test.miniwindow('/../html/websocektclient.html');}},
       {label: 'ブラウザ', click:function(){var browser  =new test.browserwindow('http://google.co.jp');}}
        ]
    }

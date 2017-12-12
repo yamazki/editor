@@ -14,11 +14,9 @@
   <div class="main_contents">
     <input type="text" id="msg"/>
     <input type="button" value="send" onclick="client.ws.send(document.getElementById('msg').value);"/>
-    <input type="button" value="server" onclick="server = new websocketserver(8888);"/>
-    <input type="button" value="client" onclick="client = new websocketclient('127.0.0.1',8888);"/>
+    <input type="button" value="server" onclick="let server = new websocketserver(8888);"/>
+    <input type="button" value="client" onclick="let client = new websocketclient('127.0.0.1',8888);"/>
     <script>
-    let server;
-    let client;
     </script>
   </div>
 </body>

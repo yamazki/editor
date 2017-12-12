@@ -7,14 +7,9 @@ const socketio = require('socket.io');
 
 class websocketserver {
   constructor(port) {
-    try {
-    let io = require('socket.io').listen(port);
-    io.sockets.on('connection', function (socket) {
+      let io = socketio.listen(port);
+      io.sockets.on('connection', function (socket) {
     });
-    alert('起動に成功しました');
-    } catch(e){
-      alert('起動に失敗しました');
-    }
   }
 }
 
@@ -22,7 +17,22 @@ class websocketclient {
   constructor(host,port) {
     this.host = host;
     this.port = port;
-    this.ws = new WebSocket('ws://' + host + ':' + port);
+    var flag = false;
+    let clientsocket = require('socket.io-client')('http://' + host + ':' + port);
+    clientsocket.on('connect', function() {
+      // ログイン通知
+      clientsocket.send('login');
+    });
+  }
+}
+
+class websocketclienttest {
+  constructor(host,port) {
+    this.host = host;
+    this.port = port;
+    try{
+    this.socket = socketioclient('ws://' + host + ':' + port);
+    }catch(e){alert('asdfasdf');}
   }
 }
 
@@ -56,6 +66,16 @@ class miniwindow {
     miniwindow.webContents.openDevTools();
   }
 }
+
+function sleep (time) {
+	const d1 = new Date();
+	while (true) {
+  		const d2 = new Date();
+  		if (d2 - d1 > time) {
+    	break;
+  		}
+  	}
+};
 
 exports.websocketserver = websocketserver;
 exports.miniwindow = miniwindow;
