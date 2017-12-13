@@ -16,7 +16,7 @@
     <input type="button" value="`サーバに接続" onclick="
       //ホスト名チェック
       if(isNaN(document.getElementById('host').value) == ''){
-        alert('ホスト名が空白です');
+        alert('ホスト名が不正です');
       }
       //ポート番号チェック
       else if(isNaN(document.getElementById('port').value) == false && 
@@ -30,7 +30,6 @@
     <input type="button" value="切断" onclick="location.reload();"/>
   </div>
   <script>
-  var person = prompt("Please enter your name", "Harry Potter");  
   </script>
   </body> 
 </html>

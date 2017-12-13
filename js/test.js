@@ -9,6 +9,7 @@ class websocketserver {
   constructor(port) {
       let io = socketio.listen(port);
       io.sockets.on('connection', function (socket) {
+        console.log('a user connected');
     });
   }
 }
@@ -23,16 +24,6 @@ class websocketclient {
       // ログイン通知
       clientsocket.send('login');
     });
-  }
-}
-
-class websocketclienttest {
-  constructor(host,port) {
-    this.host = host;
-    this.port = port;
-    try{
-    this.socket = socketioclient('ws://' + host + ':' + port);
-    }catch(e){alert('asdfasdf');}
   }
 }
 
