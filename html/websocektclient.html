@@ -9,9 +9,11 @@
   <div class="header">
   </div>
   <div class="main">
-    ホスト名: 
+    名前:
+    <FORM name="nameform"><input type="text" id="name"/></FORM> </br>
+    ホスト名:
     <input type="text" id="host"/> </br>
-    ポート番号: 
+    ポート番号:
     <input type="text" id="port"/> </br> </br>
     <input type="button" value="`サーバに接続" onclick="
       //ホスト名チェック
@@ -22,17 +24,17 @@
       else if(isNaN(document.getElementById('port').value) == false && 
       document.getElementById('port').value > 0                     && 
       document.getElementById('port').value < 65535) {
-        let server = new websocketclient(document.getElementById('host').value,document.getElementById('port').value);
+        let client = new websocketclient(document.getElementById('host').value,document.getElementById('port').value);
+        console.log(getusername());
+        console.log(name);
       } else {
         alert('ポート番号の入力値が不正です。0から65535までの数を入力して下さい。');
       }
     "/>
-    <input type="button" value="切断" onclick="location.reload();"/>
   </div>
   <script>
+  nameform.name.value = getusername();
   </script>
   </body> 
 </html>
-
-
 

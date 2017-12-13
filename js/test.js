@@ -4,15 +4,20 @@ const WebSocketServer = require('ws').Server;
 const {app, Menu, BrowserWindow} = require('electron');
 const Path = require('path');
 const socketio = require('socket.io');
+const os = require('os');
 
 class websocketserver {
   constructor(port) {
-      let io = socketio.listen(port);
-      io.sockets.on('connection', function (socket) {
-        console.log('a user connected');
+    let io = socketio.listen(port);
+    io.sockets.on('connection', function (socket) {
+      console.log('a user connected');
+    });
+    io.sockets.on('connection', function (socket) {
+      console.log('a user connected');
     });
   }
 }
+module. exports.websocketserver = websocketserver;
 
 class websocketclient {
   constructor(host,port) {
@@ -21,11 +26,11 @@ class websocketclient {
     var flag = false;
     let clientsocket = require('socket.io-client')('http://' + host + ':' + port);
     clientsocket.on('connect', function() {
-      // ログイン通知
       clientsocket.send('login');
     });
   }
 }
+module.exports.websocketclient = websocketclient ;
 
 class browserwindow {
   constructor(filename) {
@@ -40,6 +45,7 @@ class browserwindow {
     browserwindow.loadURL(filename);
   }
 }
+module.exports.browserwindow = browserwindow;
 
 class miniwindow {
   constructor(filename) {
@@ -57,17 +63,10 @@ class miniwindow {
     miniwindow.webContents.openDevTools();
   }
 }
+module.exports.miniwindow = miniwindow;
 
-function sleep (time) {
-	const d1 = new Date();
-	while (true) {
-  		const d2 = new Date();
-  		if (d2 - d1 > time) {
-    	break;
-  		}
-  	}
-};
-
-exports.websocketserver = websocketserver;
-exports.miniwindow = miniwindow;
-exports.browserwindow = browserwindow;
+function getusername(){
+  let userInfo = os.userInfo();
+  return userInfo.username;
+}
+module.exports.getusername = getusername;
