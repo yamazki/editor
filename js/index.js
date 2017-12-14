@@ -45,11 +45,11 @@ app.on('ready', function() {
   {
     label: 'ネットワーク',
     submenu: [
-      {label: 'ウェブソケットサーバ', click:function(){var server =new test.miniwindow('/../html/websocektserver.html');}},
-      {label: 'ウェブソケットクライアント', click:function(){var server =new test.miniwindow('/../html/websocektclient.html');}},
+      {label: 'ペアエディタサーバ', click:function(){let server = new test.miniwindow('/../html/websocektserver.html');}},
+      {label: 'ペアエディタクライアント', click:function(){let client = new test.miniwindow('/../html/websocektclient.html');}},
       {label: 'ブラウザ', click:function(){var browser  =new test.browserwindow('http://google.co.jp');}}
        ]
-   }
+  }
   ]);
   mainWindow.setMenu(menu);
 });
