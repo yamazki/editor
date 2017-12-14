@@ -80,9 +80,10 @@ function portcheck(port) {
 }
 module.exports.portcheck = portcheck;
 
-function editorinit(){
-   let editor = ace.edit("input_area");
-   editor.getSession().setMode('ace/mode/javascript');
-   editor.setTheme('ace/theme/chrome');
+function editorinit(area,mode,theme){
+   let editor = ace.edit(area);
+   editor.getSession().setMode(mode);
+   editor.setTheme(theme);
+   return editor;
 }
 module.exports.editorinit = editorinit;

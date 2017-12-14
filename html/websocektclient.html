@@ -8,8 +8,9 @@
   <script src='../lib/ace/mode-javascript.js'></script>
   <script src='../lib/ace/theme-twilight.js'></script>
   <script>window.jQuery = window.$ = require('../lib/jquery-3.2.1.min.js');</script>
+  <script>let editor</script>
 </head>
-<body onload="editorinit();">
+<body onload="editor = editorinit('input_area','ace/mode/java','ace/theme/chrome');">
   <div class="header">
   </div>
   <div class="login">

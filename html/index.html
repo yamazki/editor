@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html>
 <head>
   <meta charset="UTF-8">
-  <title>Sample</title>
-  <link rel="stylesheet" type="text/css" href="../css/test.css">
-  <script src="../js/test.js"> </script>
+  <title>websocketclient</title>
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
+  <script src='../js/test.js'> </script>
+  <script src='../lib/ace/ace.js'></script>
+  <script src='../lib/ace/mode-javascript.js'></script>
+  <script src='../lib/ace/theme-twilight.js'></script>
+  <script>window.jQuery = window.$ = require('../lib/jquery-3.2.1.min.js');</script>
+  <script>let editor</script>
 </head>
-<body>
-  <div class="header">
-    <p><h1>テストページ</h1></p>
+<body onload="editor = editorinit('input_area','ace/mode/java','ace/theme/chrome');">
+<input type="button" value="testlog" onclick="console.log(editor);"/>
+ <div class="editor">
+    <div id="input_area">
+      <div id="input_txt">
+      </div>
+    </div>
   </div>
-  <div class="black_line"> </div>
-  <div class="main_contents">
-    <input type="text" id="msg"/>
-    <input type="button" value="send" onclick="client.ws.send(document.getElementById('msg').value);"/>
-    <input type="button" value="server" onclick="let server = new websocketserver(8888);"/>
-    <input type="button" value="client" onclick="let client = new websocketclient('127.0.0.1',8888);"/>
-    <script>
-    </script>
-  </div>
-</body>
+  <script>
+  </script>
+  </body> 
 </html>
-
 
