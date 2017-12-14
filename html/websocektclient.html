@@ -1,20 +1,17 @@
 <!doctype html>
 <head>
   <meta charset="UTF-8">
-  <title>websocketserver</title>
+  <title>websocketclient</title>
   <link rel="stylesheet" type="text/css" href="../css/websocketserver.css">
   <script src="../js/test.js"> </script>
 </head>
 <body>
   <div class="header">
   </div>
-  <div class="main">
-    名前:
-    <FORM name="nameform"><input type="text" id="name"/></FORM> </br>
-    ホスト名:
-    <input type="text" id="host"/> </br>
-    ポート番号:
-    <input type="text" id="port"/> </br> </br>
+  <div class="login">
+    <FORM name="nameform">名前:<input type="text" id="name"/></FORM>
+    ホスト名:<input type="text" id="host"/> </br>
+    ポート番号:<input type="text" id="port"/> </br> </br>
     <input type="button" value="`サーバに接続" onclick="
       //ホスト名チェック
       if(isNaN(document.getElementById('host').value) == ''){
@@ -25,15 +22,15 @@
       document.getElementById('port').value > 0                     && 
       document.getElementById('port').value < 65535) {
         let client = new websocketclient(document.getElementById('host').value,document.getElementById('port').value);
-        console.log(getusername());
-        console.log(name);
-      } else {
+        $('.login').fadeOut();
+         } else {
         alert('ポート番号の入力値が不正です。0から65535までの数を入力して下さい。');
       }
     "/>
   </div>
   <script>
   nameform.name.value = getusername();
+  window.jQuery = window.$ = require('../lib/jquery-3.2.1.min.js');
   </script>
   </body> 
 </html>

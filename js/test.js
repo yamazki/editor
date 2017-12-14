@@ -5,6 +5,7 @@ const {app, Menu, BrowserWindow} = require('electron');
 const Path = require('path');
 const socketio = require('socket.io');
 const os = require('os');
+const jquery = require('../lib/jquery-3.2.1.min.js');
 
 class websocketserver {
   constructor(port) {
@@ -58,7 +59,7 @@ class miniwindow {
     webPreferences: {webSecurity: false}
       } );
     miniwindow.loadURL('file://' + __dirname + filename);
-    const menu = Menu.buildFromTemplate([])
+    let menu = Menu.buildFromTemplate([])
     miniwindow.setMenu(menu);
     miniwindow.webContents.openDevTools();
   }
