@@ -11,7 +11,14 @@
   <script>let editor</script>
 </head>
 <body onload="editor = editorinit('input_area','ace/mode/java','ace/theme/chrome');">
-<input type="button" value="testlog" onclick="console.log(editor);"/>
+<ul id="menu">
+  <li><a href="#" onclick="editorfontsizechange(editor,14);">html</a></li>
+  <li><a href="#">CSS</a></li>
+  <li><a href="#">JavaScript</a></li>
+  <li><a href="#">PHP</a></li>
+  <li><a href="#">Perl</a></li>
+</ul>
+<input type="button" value="testlog" onclick="editorfontsizechange(editor,100);"/>
  <div class="editor">
     <div id="input_area">
       <div id="input_txt">
