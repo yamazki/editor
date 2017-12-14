@@ -13,9 +13,6 @@ class websocketserver {
     io.sockets.on('connection', function (socket) {
       console.log('a user connected');
     });
-    io.sockets.on('connection', function (socket) {
-      console.log('a user connected');
-    });
   }
 }
 module. exports.websocketserver = websocketserver;
@@ -26,7 +23,7 @@ class websocketclient {
     this.port = port;
     var flag = false;
     let clientsocket = require('socket.io-client')('http://' + host + ':' + port);
-    clientsocket.on('connect', function() {
+    clientsocket.on('connection', function() {
       clientsocket.send('login');
     });
   }
