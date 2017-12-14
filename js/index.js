@@ -9,7 +9,7 @@ app.on('ready', function() {
   {width:  800,
    height: 600,
    webPreferences:{
-     webSecurity:false
+   webSecurity:false
      }
   });
   mainWindow.loadURL('file://' + __dirname + '/../html/index.html');

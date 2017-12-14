@@ -66,8 +66,20 @@ class miniwindow {
 }
 module.exports.miniwindow = miniwindow;
 
-function getusername(){
+function getusername() {
   let userInfo = os.userInfo();
   return userInfo.username;
 }
 module.exports.getusername = getusername;
+
+function portcorrect(port) {
+  if(isNaN(port) == false && 
+  port > 0                && 
+  port < 65535){ 
+    return true;
+  } else {
+    return false;
+  }
+}
+module.exports.portcorrect = portcorrect;
+
