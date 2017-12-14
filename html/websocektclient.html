@@ -3,10 +3,13 @@
   <meta charset="UTF-8">
   <title>websocketclient</title>
   <link rel="stylesheet" type="text/css" href="../css/websocketclient.css">
-  <script src="../js/test.js"> </script>
+  <script src='../js/test.js'> </script>
+  <script src='../lib/ace/ace.js'></script>
+  <script src='../lib/ace/mode-javascript.js'></script>
+  <script src='../lib/ace/theme-twilight.js'></script>
   <script>window.jQuery = window.$ = require('../lib/jquery-3.2.1.min.js');</script>
 </head>
-<body>
+<body onload="editorinit();">
   <div class="header">
   </div>
   <div class="login">
@@ -21,20 +24,25 @@
       else if((document.getElementById('host').value) == '') {
         alert('ホスト名が空白です。ホスト名を入力してください。');
       }
-      else if(portcorrect (document.getElementById('port').value)== false) {
+      else if(portcheck (document.getElementById('port').value)== false) {
         alert('ポート番号の入力値が不正です。0から65535までの数を入力して下さい。');
       }
       else {
         client = new websocketclient(document.getElementById('host').value,document.getElementById('port').value);
         $('.login').fadeOut();
+        $('.editor').show();
       }
     "/>
   </div>
+  <div class="editor">
+    <div id="input_area">
+      <div id="input_txt">
+      </div>
+    </div>
+  </div>
   <script>
     nameform.name.value = getusername();
-    let hoet;
-    let port;
-    let client;
+    $('.editor').fadeOut();
   </script>
   </body> 
 </html>

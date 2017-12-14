@@ -10,7 +10,7 @@ const jquery = require('../lib/jquery-3.2.1.min.js');
 class websocketserver {
   constructor(port) {
     let io = socketio.listen(port);
-    io.sockets.on('connection', function (socket) {
+    io.sockets.on('connect', function (socket) {
       console.log('a user connected');
     });
   }
@@ -69,7 +69,7 @@ function getusername() {
 }
 module.exports.getusername = getusername;
 
-function portcorrect(port) {
+function portcheck(port) {
   if(isNaN(port) == false && 
   port > 0                && 
   port < 65535){ 
@@ -78,5 +78,11 @@ function portcorrect(port) {
     return false;
   }
 }
-module.exports.portcorrect = portcorrect;
+module.exports.portcheck = portcheck;
 
+function editorinit(){
+   let editor = ace.edit("input_area");
+   editor.getSession().setMode('ace/mode/javascript');
+   editor.setTheme('ace/theme/chrome');
+}
+module.exports.editorinit = editorinit;
