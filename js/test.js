@@ -1,13 +1,12 @@
 'use strict'
 
-const WebSocketServer = require('ws').Server;
 const {app, Menu, BrowserWindow} = require('electron');
 const Path = require('path');
 const socketio = require('socket.io');
 const os = require('os');
 const jquery = require('../lib/jquery-3.2.1.min.js');
 
-class websocketserver {
+class webScoketServer {
   constructor(port) {
     let io = socketio.listen(port);
     io.sockets.on('connect', function (socket) {
@@ -15,9 +14,9 @@ class websocketserver {
     });
   }
 }
-module. exports.websocketserver = websocketserver;
+module. exports.webScoketServer = webScoketServer;
 
-class websocketclient {
+class webSocketClient {
   constructor(host,port) {
     this.host = host;
     this.port = port;
@@ -28,11 +27,11 @@ class websocketclient {
     });
   }
 }
-module.exports.websocketclient = websocketclient ;
+module.exports.webSocketClient = webSocketClient;
 
-class browserwindow {
+class browser {
   constructor(filename) {
-    const browserwindow = new BrowserWindow( {
+    const browser = new BrowserWindow( {
     width:    1000,
     height:   700,
     minWidth: 400,
@@ -40,14 +39,14 @@ class browserwindow {
     resizable:true,
     webPreferences: {webSecurity: false}
       });
-    browserwindow.loadURL(filename);
+    browser.loadURL(filename);
   }
 }
-module.exports.browserwindow = browserwindow;
+module.exports.browser = browser;
 
-class miniwindow {
+class miniWindow {
   constructor(filename) {
-    const miniwindow = new BrowserWindow( {
+    const miniWindow = new BrowserWindow( {
     width: 400,
     height: 400,
     minWidth: 400,
@@ -55,21 +54,21 @@ class miniwindow {
     resizable: true,
     webPreferences: {webSecurity: false}
       } );
-    miniwindow.loadURL('file://' + __dirname + filename);
+    miniWindow.loadURL('file://' + __dirname + filename);
     let menu = Menu.buildFromTemplate([])
-    miniwindow.setMenu(menu);
-    miniwindow.webContents.openDevTools();
+    miniWindow.setMenu(menu);
+    miniWindow.webContents.openDevTools();
   }
 }
-module.exports.miniwindow = miniwindow;
+module.exports.miniWindow = miniWindow;
 
-function getusername() {
+function getUserName() {
   let userInfo = os.userInfo();
   return userInfo.username;
 }
-module.exports.getusername = getusername;
+module.exports.getUserName = getUserName;
 
-function portcheck(port) {
+function portCheck(port) {
   if(isNaN(port) == false && 
   port > 0                && 
   port < 65535){ 
@@ -78,14 +77,14 @@ function portcheck(port) {
     return false;
   }
 }
-module.exports.portcheck = portcheck;
+module.exports.portCheck = portCheck;
 
-function editorinit(area,mode,theme){
+function editorInit(area,mode,theme){
    let editor = ace.edit(area);
    editor.getSession().setMode(mode);
    editor.setTheme(theme);
    return editor;
 }
-module.exports.editorinit = editorinit;
+module.exports.editorInit = editorInit;
 
 

@@ -46,9 +46,9 @@ app.on('ready', function() {
   {
     label: 'ネットワーク',
     submenu: [
-      {label: 'ペアエディタ(サーバ)', click:function(){let server = new test.miniwindow('/../html/websocektserver.html');}},
-      {label: 'ペアエディタ(クライアント)', click:function(){let client = new test.miniwindow('/../html/websocektclient.html');}},
-      {label: 'ブラウザ', click:function(){var browser  =new test.browserwindow('http://google.co.jp');}}
+      {label: 'ペアエディタ(サーバ)', click:function(){let server = new test.miniWindow('/../html/websocektserver.html');}},
+      {label: 'ペアエディタ(クライアント)', click:function(){let client = new test.miniWindow('/../html/websocektclient.html');}},
+      {label: 'ブラウザ', click:function(){var browser  =new test.browser('http://google.co.jp');}}
        ]
   }
   ]);
