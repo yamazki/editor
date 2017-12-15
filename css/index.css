@@ -37,7 +37,7 @@ body{
   padding:3px 0;
   text-decoration:none;
   display:block;
-  background:#666;
+  background-color: #888888;
 }
 
 #menu li a:hover {
@@ -48,7 +48,7 @@ body{
 
 #input_area{
    padding:0px 0px 0px 0px;
-   height:90%;
+   height:98%;
 }
 #input_txt{
    width:100%;
