@@ -88,8 +88,4 @@ function editorinit(area,mode,theme){
 }
 module.exports.editorinit = editorinit;
 
-function editorfontsizechange(editor,fontsize){
-  editor.setFontSize(fontsize);
-}
-module.exports.editorfontsizechange = editorfontsizechange;
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
-  <title>websocketclient</title>
+  <title>eiditor</title>
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   <script src='../js/test.js'> </script>
   <script src='../lib/ace/ace.js'></script>
@@ -12,19 +12,18 @@
 </head>
 <body onload="editor = editorinit('input_area','ace/mode/java','ace/theme/chrome');">
   <ul id="menu">
-    <li><a href="#" onclick="editorfontsizechange(editor,14);">html</a></li>
+    <li><a href="#" onclick="editor.setFontSize(18);">html</a></li>
     <li><a href="#">CSS</a></li>
     <li><a href="#">JavaScript</a></li>
     <li><a href="#">PHP</a></li>
-    <li><a href="#">Perl</a></li>
+    <li><a href="#"onclick="editor.setKeyboardHandler('ace/keyboard/vim');">モード</a></li>
   </ul>
-  <input type="button" value="testlog" onclick="editorfontsizechange(editor,100);"/>
-    <div id="input_area">
-      <div id="input_txt">
-      </div>
+  <div id="input_area">
+    <div id="input_txt">
     </div>
-    <script>
-    </script>
+  </div>
+  <script>
+  </script>
   </body> 
 </html>
 
