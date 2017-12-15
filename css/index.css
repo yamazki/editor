@@ -1,3 +1,8 @@
+* {
+  margin:0px;
+  padding:0px;
+}
+
 html,
 body{
    width:100%;
@@ -6,6 +11,7 @@ body{
 }
 #menu {
   width:530px;
+  height:30px;
   padding:0;
   margin:0;
   list-style-type: none;
@@ -35,14 +41,10 @@ body{
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(0.50, #444), color-stop(0.50, #333), color-stop(1, #444));
 }
 
-.editor{
-  width:100%;
-  height:100%;
-}
 
 #input_area{
-   width:100%;
-   height:100%;
+   padding:0px 0px 0px 0px;
+   height:90%;
 }
 #input_txt{
    width:100%;

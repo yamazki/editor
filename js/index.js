@@ -36,17 +36,18 @@ app.on('ready', function() {
     ]
   },
   {
-    label: 'Edit',
+    label: 'その他',
     submenu: [
       {label: 'Copy', accelerator: 'Command+C', selector: 'copy'},
       {label: 'Paste', accelerator: 'Command+V', selector: 'paste'}
       ]
   },
+
   {
     label: 'ネットワーク',
     submenu: [
-      {label: 'ペアエディタサーバ', click:function(){let server = new test.miniwindow('/../html/websocektserver.html');}},
-      {label: 'ペアエディタクライアント', click:function(){let client = new test.miniwindow('/../html/websocektclient.html');}},
+      {label: 'ペアエディタ(サーバ)', click:function(){let server = new test.miniwindow('/../html/websocektserver.html');}},
+      {label: 'ペアエディタ(クライアント)', click:function(){let client = new test.miniwindow('/../html/websocektclient.html');}},
       {label: 'ブラウザ', click:function(){var browser  =new test.browserwindow('http://google.co.jp');}}
        ]
   }
