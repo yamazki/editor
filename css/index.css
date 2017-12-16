@@ -52,6 +52,10 @@ body{
   display:block;
 }
 
+#menu li:active ul {
+  display:none;
+}
+
 #menu li a:hover {
   background-image: -moz-linear-gradient(top, #555 0%, #444 50%, #333 50%, #444 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(0.50, #444), color-stop(0.50, #333), color-stop(1, #444));
