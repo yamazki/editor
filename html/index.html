@@ -10,7 +10,7 @@
   <script>window.jQuery = window.$ = require('../lib/jquery-3.2.1.min.js');</script>
   <script>let editor</script>
 </head>
-<body onload="editor = editorInit('input_area','ace/mode/java','ace/theme/chrome');">
+<body onload="editor = editorInit('input_area','ace/mode/java','ace/theme/chrome');editor.setFontSize(18);">
   <ul id="menu">
     <li><a href="#">ファイル</a>
       <ul>
@@ -24,13 +24,32 @@
          <li><a href="#" onclick="editor.setFontSize(18);">読み込み</a></li>
       </ul>
     </li>
-    <li><a href="#">フォント</a></li>
+    <li><a href="#">テーマ</a>
+    <li><a href="#">フォントサイズ</a>
+      <ul>
+         <li><a href="#" onclick="editor.setFontSize(8);">8pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(10);">10pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(12);">12pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(14);">14pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(16);">16pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(18);">18pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(20);">20pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(22);">22pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(24);">24pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(26);">26pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(28);">28pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(36);">36pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(48);">48pt</a></li>
+         <li><a href="#" onclick="editor.setFontSize(72);">72pt</a></li>
+      </ul>
+    </li>
     <li><a href="#">モード</a>
       <ul>
-         <li></li>
+         <li><a href="#" onclick="editor.setKeyboardHandler('');">ノーマル</a></li>
          <li><a href="#" onclick="editor.setKeyboardHandler('ace/keyboard/vim');">Vim</a></li>
          <li><a href="#" onclick="editor.setKeyboardHandler('ace/keyboard/emacs');">Emacs</a></li>
       </ul>
+    <li><a href="#">シンタックス</a></li>
     </li>
   </ul>
   <div id="space">
