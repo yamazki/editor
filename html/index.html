@@ -12,11 +12,26 @@
 </head>
 <body onload="editor = editorInit('input_area','ace/mode/java','ace/theme/chrome');">
   <ul id="menu">
-    <li><a href="#" onclick="editor.setFontSize(18);">html</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-    <li><a href="#">PHP</a></li>
-    <li><a href="#"onclick="editor.setKeyboardHandler('ace/keyboard/vim');">モード</a></li>
+    <li><a href="#">ファイル</a>
+      <ul>
+         <li><a href="#" onclick="editor.setFontSize(18);">保存</a></li>
+         <li><a href="#" onclick="editor.setFontSize(18);">読み込み</a></li>
+      </ul>
+    </li>
+    <li><a href="#">編集</a>
+      <ul>
+         <li><a href="#" onclick="editor.setFontSize(18);">保存</a></li>
+         <li><a href="#" onclick="editor.setFontSize(18);">読み込み</a></li>
+      </ul>
+    </li>
+    <li><a href="#">フォント</a></li>
+    <li><a href="#">モード</a>
+      <ul>
+         <li></li>
+         <li><a href="#" onclick="editor.setKeyboardHandler('ace/keyboard/vim');">Vim</a></li>
+         <li><a href="#" onclick="editor.setKeyboardHandler('ace/keyboard/emacs');">Emacs</a></li>
+      </ul>
+    </li>
   </ul>
   <div id="space">
   </div>
