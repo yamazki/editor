@@ -87,4 +87,7 @@ function editorInit(area,mode,theme){
 }
 module.exports.editorInit = editorInit;
 
-
+function opendialog(dialog){
+  dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']});
+}
+module.exports.opendialog = opendialog;

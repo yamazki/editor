@@ -15,7 +15,7 @@
   <ul id="menu">
     <li><a href="#">ファイル</a>
       <ul>
-         <li><a href="#" onclick="editor.setFontSize(18);">保存</a></li>
+         <li><a href="#" onclick="opendialog(dialog);">保存</a></li>
          <li><a href="#" onclick="editor.setFontSize(18);">読み込み</a></li>
       </ul>
     </li>
@@ -60,6 +60,9 @@
     </div>
   </div>
   <script>
+  const remote = require('electron').remote;
+  const dialog = remote.dialog;
+  const browserWindow = remote.BrowserWindow;
   </script>
   </body> 
 </html>

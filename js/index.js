@@ -54,3 +54,18 @@ app.on('ready', function() {
   ]);
   mainWindow.setMenu(menu);
 });
+
+app.on('window-all-closed', () => {
+    if(process.platform != 'darwin'){
+        app.quit();
+    }
+});
+
+app.on('ready', () => {
+    // お使いの画面解像度に応じて調整してください
+    mainWindow = new BrowserWindow({width: 1600, height: 900});
+    mainWindow.loadURL('file://' + __dirname + '/index.html');
+    mainWindow.on('closed', ()  => {
+        mainWindow = null;
+    });
+});
