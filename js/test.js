@@ -5,6 +5,7 @@ const Path = require('path');
 const socketio = require('socket.io');
 const os = require('os');
 const jquery = require('../lib/jquery-3.2.1.min.js');
+const fs = require('fs');
 
 class webScoketServer {
   constructor(port) {
@@ -79,7 +80,7 @@ function portCheck(port) {
 }
 module.exports.portCheck = portCheck;
 
-function editorInit(area,mode,theme){
+function editorInit(area,mode,theme) {
    let editor = ace.edit(area);
    editor.getSession().setMode(mode);
    editor.setTheme(theme);
@@ -87,7 +88,59 @@ function editorInit(area,mode,theme){
 }
 module.exports.editorInit = editorInit;
 
-function opendialog(dialog){
-  dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']});
+function saveAsFile() {
+   var win = browserWindow.getFocusedWindow();
+   dialog.showSaveDialog(
+      win,
+      {
+         properties: ['openFile'],
+      },
+      function (fileName) {
+         if (fileName) {
+            var data = editor.getValue();
+            writeFile(fileName, data);
+         }
+      }
+   );
 }
-module.exports.opendialog = opendialog;
+module.exports.openFile = openFile;
+
+function writeFile(path, data) {
+   fs.writeFile(path, data, function (error) {
+      if (error != null) {
+         alert('error : ' + error);
+         return;
+      }
+   });
+}
+module.exports.writeFile = writeFile;
+
+function openFile(){
+   var win = browserWindow.getFocusedWindow();
+   dialog.showOpenDialog(
+      win,
+      {
+         properties: ['openFile'],
+      },
+      function (filenames) {
+         if (filenames) {
+         readFile(filenames[0]);
+         }
+      });
+}
+module.exports.openFile = openFile;
+
+function readFile(path) {
+   fs.readFile(path, function (error, text) {
+      if (error != null) {
+         alert('error : ' + error);
+         return;
+      }
+      editor.setValue(text.toString(),-1);
+   });
+}
+module.exports.readFile = readFile;
+
+function setSyntax (path) {
+  
+}

@@ -9,14 +9,15 @@
   <script src='../lib/ace/theme-twilight.js'></script>
   <script src='../lib/jquery-3.2.1.min.js'></script>
   <script>window.jQuery = window.$ = require('../lib/jquery-3.2.1.min.js');</script>
-  <script>let editor</script>
+  <script>let editor;</script>
 </head>
 <body onload="editor = editorInit('input_area','ace/mode/java','ace/theme/chrome');editor.setFontSize(18);">
   <ul id="menu">
     <li><a href="#">ファイル</a>
       <ul>
-         <li><a href="#" onclick="opendialog(dialog);">保存</a></li>
-         <li><a href="#" onclick="editor.setFontSize(18);">読み込み</a></li>
+         <li><a href="#" onclick="openFile();">読み込み</a></li>
+         <li><a href="#" onclick="writeFile();">上書き保存</a></li>
+         <li><a href="#" onclick="saveAsFile();">新規保存</a></li>
       </ul>
     </li>
     <li><a href="#">編集</a>

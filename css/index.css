@@ -71,6 +71,7 @@ body{
 
 #menu li ul {
   display:none;
+  font-size:12px;
   position:relative;
   z-index:9998;
 }
