@@ -10,13 +10,40 @@ body{
    overflow: hidden;
 }
 
-#menu {
+#nontext {
   width:10000px;
-  height:24px;
+  height:20px;
+  position:absolute;
   padding:0;
   margin:0;
   list-style-type: none;
   background-color: #888888;
+}
+
+
+#menu {
+  width:10000px;
+  height:20px;
+  position:absolute;
+  padding:0;
+  margin:0;
+  list-style-type: none;
+  background-color: #888888;
+}
+
+#space {
+  width:10000px;
+  height:40px;
+  padding:0;
+  margin:0;
+  list-style-type: none;
+}
+
+#null {
+  width:10000px;
+  height:20px;
+  padding:0;
+  margin:0;
 }
 
 #menu li {
@@ -56,14 +83,6 @@ body{
 #menu li a:hover {
   background-image: -moz-linear-gradient(top, #555 0%, #444 50%, #333 50%, #444 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(0.50, #444), color-stop(0.50, #333), color-stop(1, #444));
-}
-
-#space {
-  width:100%;
-  height:20px;
-  padding:0;
-  margin:0;
-  list-style-type: none;
 }
 
 #input_area{
