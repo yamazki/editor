@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
   <meta charset="UTF-8">
-  <title>websocketserver</title>
+  <title>サーバ</title>
   <link rel="stylesheet" type="text/css" href="../css/websocketserver.css">
   <script src="../js/test.js"> </script>
 </head>
@@ -12,13 +12,10 @@
     ポート番号: 
     <input type="text" id="port"/> </br> </br>
     <input type="button" value="サーバー起動" onclick="
-        //ポート番号チェック
-        if(isNaN(document.getElementById('port').value) == false && 
-        document.getElementById('port').value > 0                && 
-        document.getElementById('port').value < 65535) {
-          server = new websocketserver(document.getElementById('port').value);
+        if(portCheck (document.getElementById('port').value)== false) {
+        alert('ポート番号の入力値が不正です。0から65535までの数を入力して下さい。');
         } else {
-          alert('入力値が不正です。0から65535までの数を入力して下さい。');
+        server = new webSocketServer(document.getElementById('port').value);
         }
      "/>
     <input type="button" value="サーバー停止" onclick="location.reload();"/>

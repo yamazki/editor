@@ -7,25 +7,37 @@ const os = require('os');
 const jquery = require('../lib/jquery-3.2.1.min.js');
 const fs = require('fs');
 
-class webScoketServer {
+class webSocketServer {
   constructor(port) {
     let io = socketio.listen(port);
-    io.sockets.on('connect', function (socket) {
+    io.sockets.on('connection', function (socket) {
       console.log('a user connected');
+      socket.on('new message', function (data) {
+        socket.emit('new message', {
+          message: data
+         });
+        console.log(data);
+       });
     });
   }
 }
-module. exports.webScoketServer = webScoketServer;
+module. exports.webSocketServer = webSocketServer;
 
 class webSocketClient {
   constructor(host,port) {
     this.host = host;
     this.port = port;
-    var flag = false;
-    let clientsocket = require('socket.io-client')('http://' + host + ':' + port);
-    clientsocket.on('connection', function() {
+    this.clientsocket = require('socket.io-client')('http://' + host + ':' + port);
+    this.clientsocket.on('connection', function() {
       clientsocket.send('login');
     });
+    this.clientsocket.on('new message', function (data) {
+      console.log(data.message);
+    });
+  }
+  sendMessage(){
+    let test = 'test';
+    this.clientsocket.emit('new message',{message: test});
   }
 }
 module.exports.webSocketClient = webSocketClient;

@@ -16,8 +16,10 @@
   <div class="login">
     <FORM name="nameform">
     名前:<input type="text" id="name"/></FORM>
-    ホスト名:<input type="text" id="host"/> </br>
-    ポート番号:<input type="text" id="port"/> </br> </br>
+    <FORM name="hostform">
+    ホスト名:<input type="text" id="host"/></FORM></br>
+    <FORM name="portform">
+    ポート番号:<input type="text" id="port"/> </FORM></br> </br>
     <input type="button" value="`サーバに接続" onclick="
       if((document.getElementById('name').value) == '') {
         alert('名前が空白です。名前を入力してください。');
@@ -35,6 +37,7 @@
       }
     "/>
   </div>
+  <input type="button" value="`サーバに接続" onclick="client.sendMessage();"/>
   <div class="editor">
     <div id="input_area">
       <div id="input_txt">
@@ -43,6 +46,8 @@
   </div>
   <script>
     nameform.name.value = getUserName();
+    hostform.host.value = 'localhost';
+    portform.port.value = 8888;
     $('.editor').fadeOut();
   </script>
   </body> 
