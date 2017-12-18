@@ -13,7 +13,7 @@ class webSocketServer {
     io.sockets.on('connection', function (socket) {
       console.log('a user connected');
       socket.on('new message', function (data) {
-        socket.emit('new message', {
+        socket.broadcast.emit('new message', {
           message: data
          });
         console.log(data);
