@@ -37,13 +37,12 @@ class webSocketClient {
     });
     clientsocket.on('new message', function (data) {
       console.log(data.message.message);
-      console.log(editor);
-      editor.removeListener('change',callback,false);
-      //イベントハンドラeditor.on削除
+      //無限ループするのでイベントハンドラeditor.on削除
+      editor.off('change',callback);
       //editor.removeAllListeners('cahge');
-      //editor.setValue(data.message.message.toString(),-1);
+      editor.setValue(data.message.message.toString(),-1);
       //イベントハンドラeditor.on復活
-      //editor.on('change',callback)
+      editor.on('change',callback);
     });
     editor.on('change',callback);
   }
