@@ -36,11 +36,12 @@ class webSocketClient {
       clientsocket.send('login');
     });
     clientsocket.on('new message', function (data) {
+      let pos = editor.session.selection.toJSON();
       console.log(data.message.message);
       //無限ループするのでイベントハンドラeditor.on削除
       editor.off('change',callback);
-      //editor.removeAllListeners('cahge');
       editor.setValue(data.message.message.toString(),-1);
+      editor.session.selection.fromJSON(pos);
       //イベントハンドラeditor.on復活
       editor.on('change',callback);
     });
