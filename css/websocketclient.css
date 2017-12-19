@@ -1,3 +1,8 @@
+* {
+  margin:0px;
+  padding:0px;
+}
+
 html,
 body{
    width:100%;
@@ -21,13 +26,89 @@ body{
   height:100%;
 }
 
+#nontext {
+  width:10000px;
+  height:20px;
+  position:absolute;
+  padding:0;
+  margin:0;
+  list-style-type: none;
+  background-color: #888888;
+}
+
+
+#menu {
+  width:10000px;
+  height:20px;
+  position:absolute;
+  padding:0;
+  margin:0;
+  list-style-type: none;
+  background-color: #888888;
+}
+
+#space {
+  width:10000px;
+  height:40px;
+  padding:0;
+  margin:0;
+  list-style-type: none;
+}
+
+#null {
+  width:10000px;
+  height:20px;
+  padding:0;
+  margin:0;
+}
+
+#menu li {
+  width:100px;
+  height:100%;
+  float:left;
+  padding:0;
+  margin:0;
+  text-align:center;
+  list-style-type: none;
+  background-color: #888888;
+ }
+
+#menu li a {
+  width:auto;
+  height:100%;
+  color:#fff;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+  display:block;
+  background-color:#888888;
+  white-space: nowrap;
+}
+
+#menu li ul {
+  display:none;
+  font-size:12px;
+  position:relative;
+  z-index:9998;
+}
+
+#menu li:hover ul {
+  display:block;
+}
+
+
+#menu li a:hover {
+  background-image: -moz-linear-gradient(top, #555 0%, #444 50%, #333 50%, #444 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(0.50, #444), color-stop(0.50, #333), color-stop(1, #444));
+}
 
 #input_area{
-   width:100%;
-   height:100%;
+   padding:0px 0px 0px 0px;
+   height:95%;
 }
 #input_txt{
    width:100%;
    height:100%;
    font–size: 11pt;
 }
+

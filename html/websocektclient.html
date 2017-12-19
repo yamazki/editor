@@ -38,6 +38,52 @@
     "/>
   </div>
   <div class="editor">
+    <ul id="menu">
+    <li><a href="#">ファイル</a>
+      <ul>
+         <li><a href="#" onclick="openFile();">読み込み</a></li>
+         <li><a href="#" onclick="writeFile();">上書き保存</a></li>
+         <li><a href="#" onclick="saveAsFile();">新規保存</a></li>
+      </ul>
+    </li>
+    <li><a href="#">編集</a>
+      <ul>
+         <li><a href="#" onclick="editor.setFontSize(18);">保存</a></li>
+         <li><a href="#" onclick="editor.setFontSize(18);">読み込み</a></li>
+      </ul>
+    </li>
+    <li><a href="#">テーマ</a>
+    <li><a href="#">フォントサイズ</a>
+      <ul>
+         <li><a href="#" onMouseOver="editor.setFontSize(8);" onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >8pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(10);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >10pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(12);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >12pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(14);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >14pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(16);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >16pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(18);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >18pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(20);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >20pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(22);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >22pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(24);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >24pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(26);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >26pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(28);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >28pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(36);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >36pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(48);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >48pt</a></li>
+         <li><a href="#" onMouseOver="editor.setFontSize(72);"onclick="$('#menu li ul').css('display','none');" onMouseOut="$('#menu li ul').css('display','');" >72pt</a></li>
+      </ul>
+    </li>
+    <li><a href="#">モード</a>
+      <ul>
+         <li><a href="#" onclick="editor.setKeyboardHandler('');                  $('#menu li ul').css('display','none');"onmouseout="$('#menu li ul').css('display','');">ノーマル</a></li>
+         <li><a href="#" onclick="editor.setKeyboardHandler('ace/keyboard/vim');  $('#menu li ul').css('display','none');"onmouseout="$('#menu li ul').css('display','');">Vim</a></li>
+         <li><a href="#" onclick="editor.setKeyboardHandler('ace/keyboard/emacs');$('#menu li ul').css('display','none');"onmouseout="$('#menu li ul').css('display','');">Emacs</a></li>
+      </ul>
+    <li><a href="#">シンタックス</a></li>
+    </li>
+  </ul>
+  <div id="space">
+    <div id="null">
+    </div>
+  </div>
     <div id="input_area">
       <div id="input_txt">
       </div>
@@ -48,6 +94,9 @@
     hostform.host.value = 'localhost';
     portform.port.value = 8888;
     $('.editor').fadeOut();
+    const remote = require('electron').remote;
+    const dialog = remote.dialog;
+    const browserWindow = remote.BrowserWindow;
   </script>
   </body> 
 </html>
