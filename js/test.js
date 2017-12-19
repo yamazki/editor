@@ -27,20 +27,25 @@ class webSocketClient {
   constructor(host,port) {
     this.host = host;
     this.port = port;
+    let callback = function(){
+        let text = editor.getValue();
+        clientsocket.emit('new message',{message: text});
+    };
     let clientsocket = require('socket.io-client')('http://' + host + ':' + port);
     clientsocket.on('connection', function(clientsocket) {
       clientsocket.send('login');
     });
     clientsocket.on('new message', function (data) {
       console.log(data.message.message);
+      console.log(editor);
+      editor.removeListener('change',callback,false);
       //イベントハンドラeditor.on削除
-      editor.setValue(data.message.message.toString(),-1);
+      //editor.removeAllListeners('cahge');
+      //editor.setValue(data.message.message.toString(),-1);
       //イベントハンドラeditor.on復活
-     });
-    editor.on('change',function(){
-      let text = editor.getValue();
-      clientsocket.emit('new message',{message: text});
+      //editor.on('change',callback)
     });
+    editor.on('change',callback);
   }
 }
 module.exports.webSocketClient = webSocketClient;
