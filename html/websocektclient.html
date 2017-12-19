@@ -31,7 +31,7 @@
         alert('ポート番号の入力値が不正です。0から65535までの数を入力して下さい。');
       }
       else {
-        client = new webSocketClient(document.getElementById('host').value,document.getElementById('port').value);
+        client = new webSocketClient(document.getElementById('host').value,document.getElementById('port').value,editor);
         $('.login').fadeOut();
         $('.editor').show();
       }

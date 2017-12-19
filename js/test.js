@@ -10,13 +10,19 @@ const fs = require('fs');
 class webSocketServer {
   constructor(port) {
     let io = socketio.listen(port);
+    let text = '';
     io.sockets.on('connection', function (socket) {
       console.log('a user connected');
+      socket.emit('new message', {
+          message: text
+        });
+      console.log(text);
       socket.on('new message', function (data) {
         socket.broadcast.emit('new message', {
           message: data
          });
-        console.log(data);
+        text = data;
+        console.log(text);
        });
     });
   }
@@ -24,27 +30,28 @@ class webSocketServer {
 module. exports.webSocketServer = webSocketServer;
 
 class webSocketClient {
-  constructor(host,port) {
+  constructor(host,port,editor) {
     this.host = host;
     this.port = port;
+    let clientsocket = require('socket.io-client')('http://' + host + ':' + port);
     let callback = function(){
         let text = editor.getValue();
-        clientsocket.emit('new message',{message: text});
+        clientsocket.emit('new message',text);
     };
-    let clientsocket = require('socket.io-client')('http://' + host + ':' + port);
-    clientsocket.on('connection', function(clientsocket) {
-      clientsocket.send('login');
-    });
+    
     clientsocket.on('new message', function (data) {
       let pos = editor.session.selection.toJSON();
-      console.log(data.message.message);
+      console.log(data.message);
       //無限ループするのでイベントハンドラeditor.on削除
-      editor.off('change',callback);
-      editor.setValue(data.message.message.toString(),-1);
-      editor.session.selection.fromJSON(pos);
-      //イベントハンドラeditor.on復活
-      editor.on('change',callback);
+      if (data.message != ''){
+        editor.off('change',callback);
+        editor.setValue(data.message.toString(),-1);
+        editor.session.selection.fromJSON(pos);
+        //イベントハンドラeditor.on復活
+        editor.on('change',callback);
+      }
     });
+
     editor.on('change',callback);
   }
 }
