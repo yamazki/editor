@@ -43,13 +43,11 @@ class webSocketClient {
       let pos = editor.session.selection.toJSON();
       console.log(data.message);
       //無限ループするのでイベントハンドラeditor.on削除
-      if (data.message != ''){
-        editor.off('change',callback);
-        editor.setValue(data.message.toString(),-1);
-        editor.session.selection.fromJSON(pos);
-        //イベントハンドラeditor.on復活
-        editor.on('change',callback);
-      }
+      editor.off('change',callback);
+      editor.setValue(data.message.toString(),-1);
+      editor.session.selection.fromJSON(pos);
+      //イベントハンドラeditor.on復活
+      editor.on('change',callback);
     });
 
     editor.on('change',callback);
